@@ -16,8 +16,8 @@
             <nav>
                 <ul class="title__nav">
                     <li><a href="#" class="title__nav-border">Home</a></li><span class="title__nav__border"/>
-                    <li><a href="#" class="title__nav-border">Sobre</a></li><span class="title__nav__border"/>
-                    <li><a href="#">Desafio</a></li>
+                    <li><a href="#" class="title__nav-border sobre">Sobre</a></li><span class="title__nav__border"/>
+                    <li><a class="desafio" href="#">Desafio</a></li>
                 </ul>
             </nav>
         </header>
@@ -56,14 +56,15 @@
                     <input class="btn1" value="Repositórios" type="button"/>
                     <input class="btn2" value="Favoritos"type="button"/></section>
                 </form>
-                <table class="tabela-repositorios">
-
-                </table>
+                <div class="div-tabela-repositorios">
+                    <table class="tabela-repositorios">
+                    </table>
+                </div>
             </div>
         </section>
     </main>
 
-
+<img />
 
 
     <footer class="foot">
@@ -71,9 +72,10 @@
     </footer>
 </body>
 
-<script src="./js//request.js"></script>
-<script src="./js/dateHelper.js"></script>
-<script src="./js//GitController.js"></script>
+<script src="./js/util/dateHelper.js"></script>
+<script src="./js/request/request.js"></script>
+<script src="./js/util/debounce.js"></script>
+<script src="./js/controller/GitController.js"></script>
 
 </html>
 
