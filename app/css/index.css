@@ -141,6 +141,12 @@ a{
     font-size:1em;
     text-align: center;
 }
-.repositorios td{
-    display: flex
+.tabela-repositorios{
+    margin: 0 auto;
+    margin-top:32px;
+    margin-bottom:32px;
+}
+.tabela-repositorios, .tabela-repositorios td {
+    border-bottom: 1px solid black;
+    padding:8px;
 }
