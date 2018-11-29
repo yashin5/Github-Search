@@ -13,23 +13,23 @@ class GitController{
     renderiza(){        
         this.inputSearch.oninput= event =>{
         event.preventDefault();
-        this.renderizaBox();
-    }
+        this.renderizaUserBox();
+        }
         this.btn1.onclick= event =>{
             event.preventDefault();
             this.renderizaRepo();
-    }
+        }
             
 
         this.btn2.onclick= event =>{
             event.preventDefault();
-            // renderizaFavoritos()
-    }
+            this.renderizaFavoritos()
+        }
     
-}
+    }
 
-    renderizaBox(){
-        requestBox(this.inputSearch.value)    
+    renderizaUserBox(){
+        requestUserBox(this.inputSearch.value)    
         .then(res =>{
             let viewFoto= `<img alt="Imagem de usuário" src=${res.avatar_url}/>`;
 
@@ -43,7 +43,7 @@ class GitController{
 
     renderizaRepo(){
         requestRepo(this.inputSearch.value)
-        .then(res =>{ 
+        .then(dados_repo =>{ 
             let viewRepos = `
             <thead>
                 <tr>
@@ -53,16 +53,47 @@ class GitController{
             </thead>
             <tbody>
             
-                ${res.map(res =>{return `
-                <tr>
-                <td>${res.name}</td><td>${dateHelper(res.updated_at)}</td>
-                </tr>
-                `}).join("")}
+                ${this.renderRepo(dados_repo)}
             
-            </tbody>`
+            </tbody>`;
                         
             this.classHTMLRepos.innerHTML=viewRepos})
+
+
     }
+    renderizaFavoritos(){
+        requestRepo(this.inputSearch.value)
+        .then(dados_repo =>{
+            let viewFavoritos = `
+                <thead>
+                    <tr>
+                    <th>Repositório</th>
+                    <th>Número de estrelas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                ${this.renderFavoritos(dados_repo)}
+                </tbody>`;
+        this.classHTMLRepos.innerHTML=viewFavoritos
+        })
+    }
+
+    renderRepo(repositorio){
+        return repositorio.map(res =>{return `
+            <tr>
+            <td>${res.name}</td><td>${dateHelper(res.updated_at)}</td>
+            </tr>
+            `}).join("")
+    }
+
+    renderFavoritos(repositorio){
+        return repositorio.map(res =>{return `
+        <tr>
+        <td>${res.name}</td><td>${res.stargazers_count}</td>
+        </tr>
+        `}).join("")
+}
 }
 
 const gitcontroller = new GitController();
