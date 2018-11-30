@@ -1,0 +1,125 @@
+.desafio-box{
+    margin:0 auto;
+    margin-top:32px;
+    padding:16px 0  16px 0 ;
+    background-color:rgba(220, 242, 243,0.2);
+    text-align: center;
+    width:100%;
+    font-family: OpenSans-Bold;
+}
+.desafio-box h1{
+    font-weight: bold;
+    font-size:2.5em;
+    margin-bottom:32px;
+    color:black
+}
+.desafio-box__content{
+    width:50%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius:10px;
+    display: flex;
+    justify-content: center
+}
+.desafio-box__content img{
+    width:100px;
+    border-radius:100%;
+    align-self:flex-start
+}
+.desafio-box__content__list{
+    margin:0 auto;
+    width:80%;
+    text-align: left;
+    line-height: 30px;
+}
+.desafio-box__content__list h2{
+    font-size:0.71em;
+}
+.desafio-box__content form{
+    margin:0 auto;
+    width:280px;
+    justify-content: space-between;
+}
+.inputSearch:focus{
+    background-color: rgba(216, 216, 187, 0.2);
+}
+.btn1,.btn2{ 
+    height: 30px;
+    width:120px;
+    border:1px solid black;
+    border-radius:5px;
+    background-color:rgba(220, 242, 243,0.2);
+}
+.btn1:hover,.btn2:hover{
+    background-color:rgba(22, 148, 155, 0.2);
+}
+.div-tabela-repositorios{
+    overflow:auto;
+    height: 300px;
+}
+.tabela-repositorios{    
+    margin: 0 auto;
+    margin-top:32px;
+    margin-bottom:32px;
+    font-family: OpenSans-Bold
+}
+.tabela-repositorios tbody tr:nth-child(odd) {
+    background-color:rgb(158, 226, 247)
+}
+.tabela-repositorios tbody tr:nth-child(even){
+    background-color:rgb(249, 249, 250)
+}
+.tabela-repositorios th{
+    margin-bottom:32px;
+}
+
+.tabela-repositorios td{
+    padding:8px;    
+}
+.msg-erro{
+    margin-top:32px;
+    width:200px;
+}
+.msg-erro img{
+    width:100px;
+    margin-left:50px;
+    margin-bottom:16px;
+}
+.msg-erro h2{
+    position:relative;
+    right:40px;
+    width: 300px;
+    margin-right:1500px
+}
+.msg-erro-usernf img{
+    margin-bottom: 32px;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid black;
+    border-color: black transparent black transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.move{
+
+}

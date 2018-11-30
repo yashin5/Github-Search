@@ -1,0 +1,13 @@
+.foot{
+    width:100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color:rgba(98, 69, 69, 0.205)
+}
+.foot p{
+    font-size:1em;
+    font-family: OpenSans-Bold;
+    text-align: center;
+}
