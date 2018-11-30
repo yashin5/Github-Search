@@ -1,5 +1,21 @@
 
-
+body{
+    width: 101%;
+    margin:0 auto;
+    font-family: OpenSans;
+}
+@font-face {
+    font-family: OpenSans;
+    src: url('./fontes/OpenSans-Regular.ttf');
+}
+@font-face {
+    font-family: OpenSans-Italic;
+    src: url('./fontes/OpenSans-LightItalic.ttf');
+}
+@font-face {
+    font-family: OpenSans-Bold;
+    src: url('./fontes/OpenSans-SemiBold.ttf');
+}
 a{
     text-decoration: none
 }
@@ -59,6 +75,7 @@ a{
 }
 .AboutMe p{
     font-size:1.3em;
+    font-family: OpenSans-Italic;
     margin:0 auto;
     text-align: justify;
     width: 60%;
@@ -76,6 +93,7 @@ a{
     background-color:rgba(220, 242, 243,0.2);
     text-align: center;
     width:100%;
+    font-family: OpenSans-Bold;
 }
 .desafio-box h1{
     font-weight: bold;
@@ -111,7 +129,7 @@ a{
     line-height: 30px;
 }
 .desafio-box__content__list h2{
-    font-size:1.1em;
+    font-size:0.71em;
 }
 .desafio-box__content form{
     margin:0 auto;
@@ -129,8 +147,23 @@ a{
     border-radius:5px;
     background-color:rgba(220, 242, 243,0.2);
 }
-.btn:hover{
+.btn1:hover,.btn2:hover{
     background-color:rgba(22, 148, 155, 0.2);
+}
+.scrollTop{
+    text-align: right
+}
+.scrollTop input{
+    font-size:0.8em;
+    width: 150px;
+    border:1px solid rgb(194, 189, 189);
+    padding:8px;
+    margin-bottom:16px;
+    margin-right: 16px;
+    background-color: rgba(0, 0, 0, 0.582);
+    color:white;
+    border-radius: 10px;
+    
 }
 .foot{
 
@@ -143,6 +176,7 @@ a{
 }
 .foot p{
     font-size:1em;
+    font-family: OpenSans-Bold;
     text-align: center;
 }
 .div-tabela-repositorios{
@@ -156,6 +190,7 @@ a{
     margin: 0 auto;
     margin-top:32px;
     margin-bottom:32px;
+    font-family: OpenSans-Bold
 
 }
 .tabela-repositorios tbody tr:nth-child(odd) {
@@ -177,19 +212,48 @@ a{
 }
 .msg-erro{
     margin-top:32px;
-    width:100px;
+    width:200px;
   
 }
 .msg-erro img{
+    
     width:100px;
     margin-left:50px;
     margin-bottom:16px;
   
 }
 .msg-erro h2{
+    position:relative;
+    right:40px;
     width: 300px;
+    margin-right:1500px
 }
 .msg-erro-usernf img{
     margin-bottom: 32px;
     
 }
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid black;
+    border-color: black transparent black transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

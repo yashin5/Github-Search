@@ -30,27 +30,41 @@ class GitController{
     };
 
     renderizaUserBox(){
+        if(this.inputSearch.value){
+            this.classHTMLFoto.innerHTML='<div class="lds-dual-ring"></div>';
+            this.classHTMLTabela.innerHTML='<div class="lds-dual-ring"></div>';
+        }else{
+            false
+        }
         requestUserBox(this.inputSearch.value)    
         .then(user =>{
-            this.classHTMLFoto.innerHTML= this.renderUserBoxFoto(user);
+            this.classHTMLFoto.innerHTML= this.renderUserBoxFoto(user) ;
             this.classHTMLTabela.innerHTML= this.renderUserBoxDados(user);
-        });
+        }).catch(() =>{
+            this.classHTMLFoto.innerHTML= "";
+            this.classHTMLTabela.innerHTML= "";
+                throw new Error("Erro na requisição");
+            });  
 
     };
 
     renderizaRepo(){
-        requestRepo(this.inputSearch.value)
-        .then(dadosRepo =>{           
-            this.classHTMLRepos.innerHTML=this.renderRepoContent(dadosRepo);
-        });
+        this.load(this.classHTMLRepos, 
+            requestRepo(this.inputSearch.value)
+            .then(dadosRepo =>{           
+                this.classHTMLRepos.innerHTML=this.renderRepoContent(dadosRepo);
+            })
+        );
+    };
 
-    }
-
-    renderizaFavoritos(){
-        requestRepo(this.inputSearch.value)
-        .then(dadosRepo =>{
-        this.classHTMLRepos.innerHTML=this.renderFavoritosContent(dadosRepo)
-        });
+    renderizaFavoritos(){ 
+        this.load(this.classHTMLRepos,
+            requestRepo(this.inputSearch.value)
+            .then(res =>{            
+                this.classHTMLRepos.innerHTML= this.renderFavoritosContent(res);
+            })
+        );
+        
     };
 
     renderUserBoxFoto(usuario){
@@ -64,15 +78,23 @@ class GitController{
     };
 
     renderUserBoxDados(usuario){
-        return `<h2>Repositórios - ${usuario.public_repos? usuario.public_repos
-                    :
-                "usuário não existe"}</h2>
-                <h2>Seguidores - ${usuario.following? usuario.following
-                    :
-                "usuário não existe"}</h2>
-                 <h2>Seguindo - ${usuario.followers? usuario.followers
-                    :
-                "usuário não existe"}</h2>`;
+        return this.renderUserBoxDadosComportamento("Repositórios", usuario.public_repos)+
+               this.renderUserBoxDadosComportamento("Seguidores", usuario.following)+
+               this.renderUserBoxDadosComportamento("Seguindo", usuario.followers);
+                
+                
+    };
+
+    renderUserBoxDadosComportamento(campo, dadoDoUsuario){
+        if(dadoDoUsuario){
+            return  `<h2>${campo} - ${dadoDoUsuario}</h2>`
+        }else{
+            if(dadoDoUsuario == null){
+                return `<h2>${campo} - Usuário não existe</h2>`
+            }else{
+                return `<h2>${campo} - ${dadoDoUsuario}</h2>`
+            };
+        };
     };
 
     renderRepo(repositorio){
@@ -85,8 +107,8 @@ class GitController{
     };
 
     renderRepoContent(repositorio){
-        return `
-                <thead>
+        if(this.renderRepo(repositorio)){
+        return `      <thead>
                     <tr>
                     <th>Repositório</th>
                     <th>Última atualização</th>
@@ -94,17 +116,16 @@ class GitController{
                 </thead>
                 <tbody>
                 
-                    ${this.renderRepo(repositorio)?
-                    this.renderRepo(repositorio)
-                    :
-                        `<div class="msg-erro">
-                        <img  src="./img/msg-erro.png"/>
-                        <h2 >Esse usuário não possui repositórios :(
-                        </div>`
-                    }
-                
-                </tbody>`;
-    };
+                    ${this.renderRepo(repositorio)
+                    }                
+                </tbody>`
+        }else{
+        return `<div class="msg-erro">
+                    <img  src="./img/msg-erro.png"/>
+                    <h2 >Esse usuário não possui repositórios :(
+                    </div>`;
+                };
+   };
 
     renderFavoritos(repositorio){
         return this.renderFavoritosFilter(repositorio)
@@ -117,69 +138,51 @@ class GitController{
     };
 
     renderFavoritosContent(repositorio){
-        return `
-                <thead>
-                    <tr>
-                    <th>Repositório</th>
-                    <th>Número de estrelas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                
-                ${this.renderFavoritos(repositorio)? 
-                    this.renderFavoritos(repositorio)
-                    :
-                    `<div class="msg-erro">
+        if(this.renderFavoritos(repositorio)){
+            return `
+                    <thead>
+                        <tr>
+                        <th>Repositório</th>
+                        <th>Número de estrelas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                    ${this.renderFavoritos(repositorio)
+                    }
+                    </tbody>`
+        }
+        else{
+            return `<div class="msg-erro">
                         <img  src="./img/msg-erro.png"/>
-                        <h2 >Esse repositório não possui estrelas :(
-                    </div>`}
-                </tbody>`;
-    }
+                        <h2 >Esse usuário não possui repositórios com estrelas :(
+                    </div>`
+        };
+    };
 
     renderFavoritosFilter(repositorio){
         return repositorio.filter(res =>{
             if(res.stargazers_count>0){return res}
 
-            else{return console.log("erro")
+            else{
+                return false
         };
+
     }).sort((a,b) => b.stargazers_count-a.stargazers_count);
     };
+
+    load(classInnerHTML, fn){
+        if(this.inputSearch.value){
+            this.classHTMLRepos.innerHTML='<div class="lds-dual-ring"></div>';
+        }else{
+            false;
+        }
+        fn.catch(() =>{
+                classInnerHTML.innerHTML= "";
+                throw new Error("Erro na requisição")
+            });           
+    }
 
 };
 
 const gitcontroller = new GitController();
-    
-
-function smoothScroll(target,duration){
-    let targetAlvo = document.querySelector(target);
-    let targetPosition = targetAlvo.getBoundingClientRect().top;
-    let startPosition = window.pageYOffset;
-    let distance = targetPosition - startPosition;
-    var startTime = null;
-
-    function animation(currentTime){
-        if(startTime ===null) startTime = currentTime;
-        let timeElapsed = currentTime - startTime;
-        let run = ease(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0,run);
-        if(timeElapsed < duration) requestAnimationFrame(animation);
-    };
-
-    function ease(t, b, c, d){
-        t /= d / 2;
-        if(t < 1) return c / 2 * t * t + b;
-        t--;
-        return -c / 2 * (t * (t - 2) -1) + b;
-    }
-
-    requestAnimationFrame(animation);
-}
-
-let scrollSobre = document.querySelector(".sobre")
-scrollSobre.onclick =()=>{
-    smoothScroll(".AboutMe", 1000)
-}
-let scrollDesafio = document.querySelector(".desafio")
-scrollDesafio.onclick =()=>{
-    smoothScroll(".desafio-box", 1000)
-}
