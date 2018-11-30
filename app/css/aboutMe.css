@@ -1,7 +1,12 @@
 .AboutMe{
     width: 100%;
-    margin-bottom:64px;
-    
+    margin-bottom:32px;
+}
+.AboutMe::after{
+    margin-top:64px;
+    display: block;
+    content:"";
+    border-bottom:1px solid rgb(238, 228, 228)
 }
 .AboutMe h1{
     margin:64px 0 32px 0;
@@ -22,6 +27,7 @@
     text-align: right
 }
 .scrollTop input{
+    cursor: pointer;
     font-size:0.8em;
     width: 150px;
     border:1px solid rgb(194, 189, 189);
@@ -33,5 +39,9 @@
     border-radius: 10px;
 }
 .scrollTop input:hover{
-    opacity: 0.5;
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+    background-color:rgb(185, 175, 175);
+    transition: all .2s ease;
 }  

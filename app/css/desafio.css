@@ -1,8 +1,6 @@
 .desafio-box{
     margin:0 auto;
-    margin-top:32px;
     padding:16px 0  16px 0 ;
-    background-color:rgba(220, 242, 243,0.2);
     text-align: center;
     width:100%;
     font-family: OpenSans-Bold;
@@ -26,6 +24,17 @@
     border-radius:100%;
     align-self:flex-start
 }
+.desafio-box__content figcaption{
+    margin-top:16px;
+}
+.desafio-box__content figcaption a{
+    color:black
+}
+.desafio-box__content figcaption a:hover{
+    color:black;
+    opacity: 0.6;
+    transition: all 0.4s ease
+}
 .desafio-box__content__list{
     margin:0 auto;
     width:80%;
@@ -44,14 +53,18 @@
     background-color: rgba(216, 216, 187, 0.2);
 }
 .btn1,.btn2{ 
+    cursor: pointer;
     height: 30px;
     width:120px;
     border:1px solid black;
     border-radius:5px;
-    background-color:rgba(220, 242, 243,0.2);
+    background-color:white
 }
 .btn1:hover,.btn2:hover{
-    background-color:rgba(22, 148, 155, 0.2);
+    font-size: 13px;
+    font-weight: 400;
+    color: #8795A2;
+    transition: all .2s ease;
 }
 .div-tabela-repositorios{
     overflow:auto;
@@ -63,11 +76,11 @@
     margin-bottom:32px;
     font-family: OpenSans-Bold
 }
-.tabela-repositorios tbody tr:nth-child(odd) {
-    background-color:rgb(158, 226, 247)
+.tabela-repositorios tbody tr:nth-child(even) {
+    background-color:white
 }
-.tabela-repositorios tbody tr:nth-child(even){
-    background-color:rgb(249, 249, 250)
+.tabela-repositorios tbody tr:nth-child(odd){
+    background-color:rgba(248, 105, 31,0.4)
 }
 .tabela-repositorios th{
     margin-bottom:32px;

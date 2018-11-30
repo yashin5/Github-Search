@@ -12,20 +12,16 @@ class GitController{
 
     //Une as chamadas de função/eventListeners para então ser chamado no constructor
     renderiza(){            
-        this.inputSearch.oninput= event =>{
-        event.preventDefault();
+        this.inputSearch.oninput= () =>{
         this.renderizaUserBox();
         this.classHTMLRepos.innerHTML="";
         };
         
-        this.btn1.onclick= event =>{
-            event.preventDefault();
+        this.btn1.onclick= () =>{
             this.renderizaRepo();
-        };
-            
+        };   
 
-        this.btn2.onclick= event =>{
-            event.preventDefault();
+        this.btn2.onclick= () =>{
             this.renderizaFavoritos();
         };
     
@@ -102,7 +98,10 @@ class GitController{
     //Trata caso não consiga encontrar o usuário
     renderUserBoxFoto(usuario){
         return usuario.avatar_url? 
-                    `<img alt="Imagem de usuário" src=${usuario.avatar_url}/>`
+                    `<figure>
+                        <img alt="Imagem de usuário" src=${usuario.avatar_url}/>
+                        <figcaption><a href=${usuario.html_url}>Visitar o Perfil</a></figcaption>
+                    </figure>`
                         :                
                     `<div class="msg-erro-usernf">
                         <img  alt="usuario nao encontrado"src="./img/msg-erro-usernf.png"/>
@@ -160,14 +159,12 @@ class GitController{
 
     };
 
-
     //Monta a view da primeira parte da tabela de favoritos
     //Chama uma função que monta a segunda parte
     //Trata quando o usuário não possui favoritos
     renderFavoritosContent(repositorio){
         if(this.renderFavoritos(repositorio)){
-            return `<h2>${this.teste()}}</h2>
-                    <thead>
+            return `<thead>
                         <tr>
                         <th>Repositório</th>
                         <th>Número de estrelas</th>
@@ -209,10 +206,6 @@ class GitController{
                 <td>${res.name}</td><td>${res.stargazers_count}</td>
                 </tr>
                 `}).join("");
-    };
-
-    teste(){
-        return requestUserBox(this.inputSearch.value).then(username => { return `${username.login}`})
     };
 
     load(classInnerHTML, fn){
