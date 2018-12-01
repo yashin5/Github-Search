@@ -19,7 +19,7 @@ O desafio consiste em:
 
 Esse app foi desenvolvido com HTML, CSS e JS assim como foi solicitado no desafio, além de Gulp e SASS.
 
-# Iniciando o projeto
+## Iniciando o projeto
 
 To run this project locally you need to have NodeJS and NPM installed in your machine. After this, follow these steps:
 
