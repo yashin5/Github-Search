@@ -61,6 +61,5 @@ Para rodar esse projeto localmente você precisa ter NodeJS e NPM instalados na 
 
 # Demonstração do desafio
 
-![](desafio-gif.gif)
-
+<a href="https://imgflip.com/gif/2nvsen"><img src="https://i.imgflip.com/2nvsen.gif" title="made at imgflip.com"/></a>
 
