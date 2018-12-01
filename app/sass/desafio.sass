@@ -1,0 +1,158 @@
+.desafio-box
+    margin: 0 auto
+    padding: 16px 0  16px 0
+    text-align: center
+    width: 100%
+    font-family: OpenSans-Bold
+    box-shadow: 0 2px  0  black
+    background-color: rgb(245,243,146)
+
+.desafio-box h1
+    font-weight: bold
+    font-size: 2.5em
+    margin-bottom: 32px
+    color: black
+
+.desafio-box__content
+    width: 50%
+    max-width: 700px
+    margin: 0 auto
+    border-radius: 10px
+    display: flex
+    justify-content: center
+
+.desafio-box__content img
+    width: 100px
+    border-radius: 100%
+    align-self: flex-start
+
+.desafio-box__content figcaption
+    margin-top: 24px
+
+
+.desafio-box__content figcaption a
+    font-size: 0.9em
+    border-radius: 5px
+    border: 1px solid black
+    padding: 6px
+    color: black
+
+.desafio-box__content figcaption a:hover
+    color: black
+    opacity: 0.6
+    transition: all 0.4s ease
+
+.desafio-box__content__list
+    margin: 0 auto
+    position: relative
+    bottom: 100px
+    width: 650px
+    text-align: left
+    line-height: 30px
+    font-weight: bold
+
+
+.desafio-box__content__list h2
+    font-size: 1em
+    font-weight: 400px
+
+
+.desafio-box__content__list h2::after
+    content: ""
+    width: 150px
+    height: 1px
+    display: block
+    background-color: black
+
+.desafio-box__content__list h2::before
+
+.desafio-box__content form
+    margin: 0 auto
+    width: 280px
+    justify-content: space-between
+
+.btn1,.btn2
+    cursor: pointer
+    height: 30px
+    width: 120px
+    border: 1px solid black
+    border-radius: 5px
+    background-color: white
+
+.btn1:hover,.btn2:hover
+    font-size: 13px
+    font-weight: 400
+    color: #8795A2
+    transition: all .2s ease
+
+.div-tabela-repositorios
+    overflow: auto
+    height: 200px
+
+.div-tabela-repositorios-change
+    height: 370px
+    transition: reverse
+    transition: all 2s ease
+
+.tabela-repositorios
+    margin: 0 auto
+    margin-top: 32px
+    margin-bottom: 32px
+    font-family: OpenSans-Bold
+
+.tabela-repositorios tbody tr:nth-child(even) 
+    background-color: white
+
+.tabela-repositorios tbody tr:nth-child(odd)
+    background-color: rgb(245,243,146)
+
+.tabela-repositorios th
+    margin-bottom: 32px
+
+
+.tabela-repositorios td
+    padding: 8px
+
+.msg-erro
+    margin-top: 32px
+    width: 200px
+
+.msg-erro img
+    width: 100px
+    margin-left: 50px
+    margin-bottom: 16px
+
+.msg-erro h2
+    position: relative
+    right: 40px
+    width: 300px
+    margin-right: 1500px
+
+.msg-erro-usernf img
+    margin-bottom: 32px
+
+.lds-dual-ring 
+    display: inline-block
+    width: 64px
+    height: 64px
+
+.lds-dual-ring:after 
+    content: " "
+    display: block
+    width: 46px
+    height: 46px
+    margin: 1px
+    border-radius: 50%
+    border: 5px solid black
+    border-color: black transparent black transparent
+    animation: lds-dual-ring 1.2s linear infinite
+
+@keyframes lds-dual-ring 
+    0% 
+        transform: rotate(0deg)
+    
+    100% 
+        transform: rotate(360deg)
+    
+
+
