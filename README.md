@@ -39,7 +39,7 @@ Para rodar esse projeto localmente você precisa ter NodeJS e NPM instalados na 
 
 4. Vá para o diretório app
           
-          app
+          desafio-qconcursos/app
 
 5. Execute o comando do gulp para executar o *SASS*
 
@@ -51,6 +51,8 @@ Para rodar esse projeto localmente você precisa ter NodeJS e NPM instalados na 
           
           
 7. Execute o arquivo index.html
+                 
+          desafio-qconcursos/app/index.html
 
 # Comandos utilizáveis
 
