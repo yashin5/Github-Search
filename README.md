@@ -59,5 +59,8 @@ Para rodar esse projeto localmente você precisa ter NodeJS e NPM instalados na 
 - gulp watch
 
 
+# Demonstração do desafio
+
+![](desafio-gif.gif)
 
 
