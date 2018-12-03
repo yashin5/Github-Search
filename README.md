@@ -36,7 +36,10 @@ Para rodar esse projeto localmente você precisa ter NodeJS e NPM instalados na 
 3. Instale as dependências
 
          npm install
+*OBS*: 
 
+    Se você utiliza linux, deve também utilizar apt install gulp
+    
 4. Vá para o diretório app
           
           desafio-qconcursos/app
