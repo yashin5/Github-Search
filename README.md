@@ -36,9 +36,6 @@ Para rodar esse projeto localmente você precisa ter NodeJS e NPM instalados na 
 3. Instale as dependências
 
          npm install
-*OBS*: 
-
-    Se você utiliza linux, deve também utilizar apt install gulp
     
 4. Vá para o diretório app
           
@@ -46,11 +43,11 @@ Para rodar esse projeto localmente você precisa ter NodeJS e NPM instalados na 
 
 5. Execute o comando do gulp para executar o *SASS*
 
-          gulp sass
+          npm run build:sass
 
 6. Execute o comando do gulp para compactar os arquivos *Js*
 
-          gulp compact
+          npm run build:compact
           
           
 7. Execute o arquivo index.html
