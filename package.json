@@ -1,4 +1,8 @@
 {
+    "scripts": {
+        "build:sass": "gulp sass",
+        "build:compact": "gulp compact"
+      },
     "devDependencies": {
         "gulp": "^3.9.1",
         "gulp-minify": "^3.1.0",
