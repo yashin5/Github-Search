@@ -1,11 +1,4 @@
-# Desafio Qconcursos
-
-O desafio consiste em:
-
-- Implementar o design mostrando sua experiência com HTML, JS e CSS.
-- Implementar a funcionalidade de listar os repositórios e os repositórios favoritos de um perfil qualquer do Github.
-- Abrir um Pull Request para este repositório quando você terminar de implementar o desafio.
-- Os links do menu devem apenas fazer scroll da página para suas respectivas seções quando clicados.
+# Github Search
 
 ## Features
 
